@@ -1,9 +1,16 @@
-
-.The_p{
-    font-size:50px;
-    color:red;
-}
-.formUseButton{
+.Form_Main{
+    border: 2px solid orange;
     width: 500px;
-
+    display:block;
+    border-radius: 14px ;
+    align-items: center;
+}
+.input_text{
+    color: orange;
+}
+.Form_title{
+    display: block;
+    text-align: center;
+    background-color: red;
+    color: yellow;
 }

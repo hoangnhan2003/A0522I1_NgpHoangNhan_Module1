@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="cssForm.css">
+
+</head>
+<body>
+<form method="post" style="{font-family: sans-serif}" class="FormMain">
+    <fieldset>
+        <legend><b style="color: aqua;font-size: 30px">Order Form</b></legend><br>
+        <p class="textDecription">What would you like to buy</p>
+        <select>
+            <option value="Hamberger">Hamberger</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Sushi">Sushi</option>
+        </select>
+        <br>
+        <p class="textDecription">How many would you like to eat</p>
+        <label><input type="radio" name="cost">1-10$</label><br>
+        <label><input type="radio"name="cost">11-20$</label><br>
+        <label><input type="radio" name="cost">21-30$</label><br>
+        <h4>Name *</h4>
+        <input type="text" placeholder="FirstName">
+        <input type="text" placeholder="LastName"><br>
+        <h4>Email</h4>
+        <input type="email" placeholder="abc@gmail.com"><br>
+        <h4>Phone number</h4>
+        <input type="text" placeholder="0123456789"><br>
+        <p>Date:</p>
+        <input type="datetime-local">
+    </fieldset>
+
+</form>
+</body>
+</html>
