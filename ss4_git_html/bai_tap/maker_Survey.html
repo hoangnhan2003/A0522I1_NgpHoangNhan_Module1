@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="cssmakerSurvey.css">
+</head>
+<body>
+<h2>Market Research Survey</h2>
+<span>please take a few moments to complete this sastifaction survey</span>
+<hr>
+<div><strong>What is your are range?</strong><br>
+<select >
+    <option value="18-24">18-24</option>
+    <option value="25-34">18-24</option>
+    <option value="35-50">15-50</option>
+    <option value="50+">50+</option>
+
+</select>
+</div>
+
+<div>
+    <strong>Gender Identity</strong><br>
+    <input type="radio" name="gender"><span>Male</span><br>
+    <input type="radio" name="gender"><span>Female</span><br>
+    <input type="radio" name="gender"><span>Nonbinary</span><br>
+    <input type="radio" name="gender"><span>Other</span><br>
+    <input type="text" class="input_text_gender"><br>
+</div>
+<div>
+    <strong>Which of the following products have your purchased in the last 2 months. Please check all that apply.</strong><br>
+    <input type="checkbox" name="checkbox_product"><span>Product 1</span><br>
+    <input type="checkbox" name="checkbox_product"><span>Product 2</span><br>
+    <input type="checkbox" name="checkbox_product"><span>Product 3</span><br>
+</div>
+<div>
+    <strong>How often would you use our new product?</strong><br>
+    <input type="radio" name="radio_often"><span>Daily</span><br>
+    <input type="radio" name="radio_often"><span>Weekly</span><br>
+    <input type="radio" name="radio_often"><span>Monthly</span><br>
+</div>
+<div>
+    <strong>What would you pay for the new product?</strong><br>
+    <span>$</span><input type="text"><span>.</span><input type="text" size="1">
+</div>
+<div>
+    <strong> What features would you like to see in the new product</strong><br>
+    <textarea rows="5" cols="90"></textarea>
+</div>
+<div>
+    <span>Please rate your level of agreement with the following statement</span><br>
+    <table cellspacing="0" cellpadding="5" border="1">
+        <tr class="tr_black">
+            <td></td>
+            <td><span>Strongly Disagree</span></td>
+            <td><span>Disagree</span></td>
+            <td><span>Agree</span></td>
+            <td><span>Strongly Agree</span></td>
+        </tr>
+        <tr>
+            <td><span>Our product are price fairly.</span></td>
+            <td><input type="radio" name="line1"><br>1</td>
+            <td><input type="radio" name="line1"><br>2</td>
+            <td><input type="radio" name="line1"><br>3</td>
+            <td><input type="radio" name="line1"><br>4</td>
+
+        </tr >
+        <tr class="tr_black">
+        <td><span>Our product are high quality.</span></td>
+        <td><input type="radio" name="line1"><br>1</td>
+        <td><input type="radio" name="line1"><br>2</td>
+        <td><input type="radio" name="line1"><br>3</td>
+        <td><input type="radio" name="line1"><br>4</td>
+
+        </tr>
+        <tr >
+            <td><span>You would recommend our product to a friend or coworker</span></td>
+            <td><input type="radio" name="line1"><br>1</td>
+            <td><input type="radio" name="line1"><br>2</td>
+            <td><input type="radio" name="line1"><br>3</td>
+            <td><input type="radio" name="line1"><br>4</td>
+
+        </tr>
+
+    </table>
+</div><br>
+<input type="submit"value="SUBMIT">
+
+</body>
+</html>

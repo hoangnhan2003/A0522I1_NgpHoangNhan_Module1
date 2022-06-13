@@ -1,0 +1,9 @@
+.tr_black{
+    background-color: #e3e2e2;
+}
+div{
+    padding-bottom: 7px;
+}
+div:hover{
+    background-color: #e39744;
+}
