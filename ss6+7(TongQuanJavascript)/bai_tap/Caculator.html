@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Input1</label><input type="number" id="input1">
+<label>Input2</label><input type="number" id="input2"><br><br>
+<input type="submit" value="Addtion"  onclick="Add()">
+<input type="submit" value="Subtraction" class="calculation" onclick="Subtract()">
+<input type="submit" value="Multiplication" class="calculation" onclick="Mult()">
+<input type="submit" value="Division" class="calculation"onclick="Division()">
+<br><br>
+<span>Result :</span><span id="text_result"></span>
+<script>
+  function Add() {
+      var a = document.getElementById("input1").value;
+      var b = document.getElementById("input2").value;
+      var x = parseInt(a)
+      var y = parseInt(b)
+      var result = x+y;
+      document.getElementById("text_result").innerText = result;
+
+  }
+  function Subtract() {
+      var a = document.getElementById("input1").value;
+      var b = document.getElementById("input2").value;
+      var x = parseInt(a)
+      var y = parseInt(b)
+      var result = x-y;
+      document.getElementById("text_result").innerText = result;
+  }
+  function Mult() {
+      var a = document.getElementById("input1").value;
+      var b = document.getElementById("input2").value;
+      var x = parseInt(a)
+      var y = parseInt(b)
+      var result = x*y;
+      document.getElementById("text_result").innerText = result;
+  }
+  function Division() {
+      var a = document.getElementById("input1").value;
+      var b = document.getElementById("input2").value;
+      var x = parseInt(a)
+      var y = parseInt(b)
+      var result = x/y;
+      document.getElementById("text_result").innerText = result;
+  }
+</script>
+</body>
+</html>

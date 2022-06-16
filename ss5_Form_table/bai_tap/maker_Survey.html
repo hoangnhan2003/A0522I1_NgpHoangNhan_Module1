@@ -10,7 +10,7 @@
 <span>please take a few moments to complete this sastifaction survey</span>
 <hr>
 <div><strong>What is your are range?</strong><br>
-<select >
+<select style="width: 500px;background-color: rgba(236,235,235,0.55)">
     <option value="18-24">18-24</option>
     <option value="25-34">18-24</option>
     <option value="35-50">15-50</option>
@@ -85,6 +85,12 @@
     </table>
 </div><br>
 <input type="submit"value="SUBMIT">
-
+<script>
+    var demo = document.getElementsByTagNameNS(div);
+    demo.addEventListener("mouseover",mouseOver());
+    function mouseOver() {
+        document.getElementsByTagNameNS(div).style.backgroundColor = "red";
+    }
+</script>
 </body>
 </html>

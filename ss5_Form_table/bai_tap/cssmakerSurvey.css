@@ -2,8 +2,12 @@
     background-color: #e3e2e2;
 }
 div{
-    padding-bottom: 7px;
+    padding-bottom: 15px;
 }
 div:hover{
     background-color: #e39744;
+}
+h2{
+    margin-top: 0px;
+    margin-bottom: 4px;
 }

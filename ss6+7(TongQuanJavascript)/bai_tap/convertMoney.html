@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table cellspacing="29px">
+    <tr>
+        <th>Amount</th>
+        <th>Form Currency</th>
+        <th>To Currency</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" id="input_number">
+        </td>
+        <td>
+            <select id="convert_from">
+                <option value="VND">Viet Nam</option>
+                <option value="USD">Dollar</option>
+                <option value="JPY">Yên</option>
+            </select>
+        </td>
+        <td>
+            <select id="convert_to">
+                <option value="USD">USD</option>
+                <option value="VND">Vnd</option>
+                <option value="JPY">Yên</option>
+            </select>
+        </td>
+        <td><input type="submit" value="Convert" style="background-color: #e07c10;padding:7px; border-radius: 4px"
+                   onclick="convertMoney()"></td>
+    </tr>
+
+</table>
+
+<p>Result : <span id="text_result"></span></p>
+<script>
+    function convertMoney() {
+        var inputNumber = document.getElementById("input_number").value;
+        var inputSelect_from = document.getElementById("convert_from").value;
+        var inputSelect_to = document.getElementById("convert_to").value;
+        var outputResult = 0;
+        switch (inputSelect_from) {
+            case "VND":
+                if (inputSelect_to == "USD") {
+                    outputResult = inputNumber / 23000;
+                } else if (inputSelect_to == "JPY") {
+                    outputResult = inputNumber / 173;
+                }
+                break;
+            case "USD":
+                if (inputSelect_to == "VND") {
+                    outputResult = inputNumber * 23000;
+                } else if (inputSelect_to == "JPY") {
+                    outputResult = inputNumber * 23000 / 173;
+                }
+                break;
+            case "JPY":
+                if (inputSelect_to == "VND") {
+                    outputResult = inputNumber * 173;
+                } else if (inputSelect_to == "USD") {
+                    outputResult = inputNumber * 173 / 23000;
+                }
+        }
+        document.getElementById("text_result").innerText = `${inputNumber} ${inputSelect_from} = ${outputResult} ${inputSelect_to}`
+
+    }
+
+ //   document.getElementById("text_result").innerHTML = convertMoney();
+</script>
+</body>
+</html>
