@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<div class="Calculator">
+    <input class="input_number" type="text"></input>
+    <div class="number_solve">
+        <button class="number" value="1">1</button>
+        <button class="number" value="2">2</button>
+        <button class="number" value="3">3</button>
+        <button class="number" value="+">+</button>
+    </div>
+    <div class="number_solve">
+        <button class="number" value="4">4</button>
+        <button class="number" value="5">5</button>
+        <button class="number" value="6">6</button>
+        <button class="number" value="-">-</button>
+    </div>
+    <div class="number_solve">
+        <button class="number" value="7">7</button>
+        <button class="number" value="8">8</button>
+        <button class="number" value="9">9</button>
+        <button class="number" value="*">x</button>
+    </div>
+    <div class="number_solve">
+        <button class="number" value="C">C</button>
+        <button class="number" value="0">0</button>
+        <button class="number" value="=">=</button>
+        <button class="number" value="/">/</button>
+    </div>
+</div>
+<style>
+    .Calculator{
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        height: 500px;
+        border: 3px solid chartreuse;
+    }
+    .input_number{
+        width: 90%;
+        border: 2px solid red;
+        height:30px;
+        margin-left: 20px;
+
+    }
+    .number_solve{
+        height: 20%;
+        align-content: center;
+    }
+</style>
+</body>
+</html>

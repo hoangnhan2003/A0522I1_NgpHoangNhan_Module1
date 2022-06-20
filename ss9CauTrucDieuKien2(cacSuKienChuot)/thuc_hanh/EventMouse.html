@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <img  id="my_img" src="https://www.pngall.com/wp-content/uploads/5/Ball-PNG-Images.png" style="width: 200px;">
+    <p>Click button below to move the image to right</p>
+    <input type="button" value="click me!" onclick="moveRight()">
+
+</div>
+<script>
+    let myImg = document.getElementById("my_img");
+    function init() {
+        myImg.style.position = 'relative';
+        myImg.style.left = '0px';
+    }
+    function moveRight() {
+        myImg.style.left = parseInt(myImg.style.left) + 10 +'px';
+    }
+    init();
+</script>
+</body>
+</html>

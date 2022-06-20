@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="doReady()">
+<div>
+    <img id="my_Img" src="../hinh_anh/peopleWalk.png" style="position:absolute;left:0; top:0; height :200px " />
+
+</div>
+<script>
+
+
+    function upArrowPressed() {
+        let myObject = document.getElementById("my_img");
+        myObject.style.top = parseInt(myObject.style.top) +12 +'px';
+    }
+    function downArrowPressed() {
+        let myObject = document.getElementById("my_img");
+        myObject.style.top = parseInt(myObject.style.top) - 12 + 'px';
+    }
+    function leftArrowPressed() {
+        let myObject = document.getElementById("my_img");
+        myObject.style.left = parseInt(myObject.style.left) + 12 + 'px';
+    }
+    function rightArrowPressed() {
+        let myObject = document.getElementById("my_img");
+        myObject.style.left = parseInt(myObject.style.left) - 12 + 'px';
+    }
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+
+        }
+    }
+    function doReady() {
+        window.addEventListener('keydown',moveSelection);
+    }
+</script>
+</body>
+</html>
