@@ -5,53 +5,70 @@
     <title>Calculator</title>
 </head>
 <body>
-<div class="Calculator">
-    <input class="input_number" type="text"></input>
-    <div class="number_solve">
-        <button class="number" value="1">1</button>
-        <button class="number" value="2">2</button>
-        <button class="number" value="3">3</button>
-        <button class="number" value="+">+</button>
-    </div>
-    <div class="number_solve">
-        <button class="number" value="4">4</button>
-        <button class="number" value="5">5</button>
-        <button class="number" value="6">6</button>
-        <button class="number" value="-">-</button>
-    </div>
-    <div class="number_solve">
-        <button class="number" value="7">7</button>
-        <button class="number" value="8">8</button>
-        <button class="number" value="9">9</button>
-        <button class="number" value="*">x</button>
-    </div>
-    <div class="number_solve">
-        <button class="number" value="C">C</button>
-        <button class="number" value="0">0</button>
-        <button class="number" value="=">=</button>
-        <button class="number" value="/">/</button>
-    </div>
-</div>
+<fieldset style="border: 2px solid red;border-radius: 6px;width: 410px ;background-color: rgba(106,124,199,0.84);margin: auto" ; >
+<table >
+    <tr >
+        <td colspan="4"><input type="text" id="input_number" style="width: 410px;height: 60px;border: 3px solid lightgrey;border-radius: 4px;font-size: 20px"></td>
+    </tr>
+    <tr>
+        <td><button class="number" value="1" onclick="getNumber('1')">1</button></td>
+        <td><button class="number" value="2" onclick="getNumber('2')">2</button></td>
+        <td><button class="number" value="3"onclick="getNumber('3')">3</button></td>
+        <td><button class="number" value="+"onclick="getNumber('+')">+</button></td>
+    </tr>
+    <tr>
+        <td><button class="number" value="4"onclick="getNumber('4')">4</button></td>
+        <td><button class="number"value="5"onclick="getNumber('5')">5</button></td>
+        <td><button class="number"value="6"onclick="getNumber('6')">6</button></td>
+        <td><button class="number"value="-"onclick="getNumber('-')">-</button></td>
+    </tr>
+    <tr>
+        <td><button class="number"value="7"onclick="getNumber('7')">7</button></td>
+        <td><button class="number"value="8"onclick="getNumber('8')">8</button></td>
+        <td><button class="number"value="9"onclick="getNumber('9')">9</button></td>
+        <td><button class="number"value="*"onclick="getNumber('*')">x</button></td>
+    </tr>
+    <tr>
+        <td><button class="number"value="C"onclick="Clear()">C</button></td>
+        <td><button class="number"value="0"onclick="getNumber('0')">0</button></td>
+        <td><button class="number"value="="onclick="solve()">=</button></td>
+        <td><button class="number"value="/"onclick="getNumber('/')">/</button></td>
+    </tr>
+
+
+</table>
+</fieldset>
 <style>
-    .Calculator{
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        width: 500px;
-        height: 500px;
-        border: 3px solid chartreuse;
-    }
-    .input_number{
-        width: 90%;
+    .number{
+
+        width: 70px;
+        height: 70px;
+        color: yellow;
+        background-color: #e06060;
+        font-size: 25px;
+        font-weight: 800;
+        margin: 10px 10px 10px 10px;
         border: 2px solid red;
-        height:30px;
-        margin-left: 20px;
+        border-radius: 3px;
+    }
+
+</style>
+<script>
+    function getNumber(number) {
+
+        let inputNumber = document.getElementById("input_number");
+        inputNumber.value += number;
 
     }
-    .number_solve{
-        height: 20%;
-        align-content: center;
+    function solve() {
+        let x = document.getElementById("input_number").value;
+        document.getElementById("input_number").value = eval(x);
+
     }
-</style>
+    function Clear() {
+        document.getElementById("input_number").value = null;
+    }
+
+</script>
 </body>
 </html>
