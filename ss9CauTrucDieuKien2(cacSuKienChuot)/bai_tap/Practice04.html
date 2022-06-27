@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim so lon nhat</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    arr.push(parseInt(prompt("enter a")))
+    arr.push(parseInt(prompt("enter b")))
+    arr.push(parseInt(prompt("enter c")))
+
+    let max = arr[0];
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]>arr[0]){
+            max = arr[i];
+        }
+    }
+    alert("phan tu lon nhat trong 3 phan tu tren ="+max);
+</script>
+</body>
+</html>

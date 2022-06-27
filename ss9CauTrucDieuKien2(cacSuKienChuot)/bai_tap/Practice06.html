@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let doanhso = parseFloat(prompt("Nhap doanh so ban hang"));
+    var  hoahong ;
+    if(doanhso < 10000){
+        hoahong = 0.01;
+    }
+    else if(doanhso<20000){
+        hoahong = 0.02;
+    }
+    else{
+        hoahong = 0.05;
+    }
+    var tienthuong = doanhso*hoahong;
+    alert("Tien thuong cua ban = "+tienthuong);
+
+</script>
+</body>
+</html>

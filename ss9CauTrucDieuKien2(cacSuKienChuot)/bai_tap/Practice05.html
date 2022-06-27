@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 05</title>
+</head>
+<body>
+<script>
+    let diemgiuaki  = parseInt(prompt("Nhap diem giua ki"));
+    let diemcuoiki = parseInt(prompt("Nhap diem cuoi ki"));
+    let tongket = diemcuoiki*0.6 + diemgiuaki*0.4;
+    if(tongket < 4){
+        alert("Hoc sinh kem");
+    }
+    else if(tongket<5){
+        alert("Hoc sinh yeu");
+    }
+    else if(tongket<6.5){
+        alert("Hoc sinh trung binh")
+    }
+    else if(tongket <8){
+        alert("Hoc sinh kha");
+    }
+    else{
+        alert("Hoc sinh gioi");
+    }
+</script>
+</body>
+</html>

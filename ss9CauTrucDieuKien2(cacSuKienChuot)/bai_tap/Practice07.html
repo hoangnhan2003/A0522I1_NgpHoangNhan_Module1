@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let minuteOfCall = parseInt(prompt("Enter minutes"));
+    var fee;
+    if(minuteOfCall < 100){
+        fee = 1000;
+    }
+    else if(minuteOfCall <200){
+        fee = 1100;
+    }
+    else{
+        fee = 1500;
+    }
+    var total = fee* minuteOfCall;
+    alert("Total fee = "+ total);
+</script>
+</body>
+</html>
