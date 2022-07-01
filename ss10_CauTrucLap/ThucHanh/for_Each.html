@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [
+        {
+            id:1,
+            name:"Nhan",
+            address:"Quang Binh"
+        },
+        {
+            id:2,
+            name:"Thanh",
+            address: "Hue"
+        },
+        {
+            id:3,
+            name:"Hoa",
+            address: "Quang tri"
+        }
+    ]
+   /* arr.forEach(function person(people) {
+        console.log(people.name);
+    })*/
+    for(var p of arr){
+        console.log(p);
+    }
+    // Trong trường hợp trên thì dùng for of với forEach thì ta có kết quả như nhau
+</script>
+</body>
+</html>

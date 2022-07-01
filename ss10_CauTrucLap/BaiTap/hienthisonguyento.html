@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x;
+    function check(x) {
+        let count = 0;
+        for(let i =2;i<x;i++){
+            if(x%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    let dem=0;
+    let require ;
+    let result = "";
+    require = prompt("Enter of numbers prime:");
+
+        for(let i=1;i>0;i++){
+            if(dem == require){
+                break;
+            }
+            if(check(i)){
+                result+=" "+ i + " ";
+                dem++;
+            }
+
+    }
+    document.write(result);
+</script>
+</body>
+</html>

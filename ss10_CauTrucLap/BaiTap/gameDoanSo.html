@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="Start" onclick="play()">Bat dau choi</button>
+<button id="Replay" onclick="play()">Choi lai</button>
+<script>
+    function play() {
+        let start,finish;
+        start = parseInt(prompt("Nhap khoang so tu a->b  ; a="));
+        finish = parseInt(prompt("b="));
+        let result = Math.floor(Math.random()*(finish-start+1))+ start ;
+        console.log(result)
+        let predict;
+        let count =0;
+        while(count<3){
+            predict = parseInt(prompt("Nhap so du doan cua ban"));
+            if(predict < result){
+                alert("Du doan cua ban be hon voi so can tim");
+            }
+            else if(predict > result){
+               alert("Du doan cua ban lon hon so can tim");
+            }
+            else{
+                alert("Chon dung roi")
+                break;
+            }
+            count++;
+
+        }
+
+    }
+    function replay() {
+
+    }
+</script>
+</body>
+</html>

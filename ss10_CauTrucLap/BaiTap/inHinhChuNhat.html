@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let rs ="";
+    for(let i=0;i<10;i++){
+        for(let j=0;j<30;j++){
+            if(i==0 || i==9) rs +="*";
+            else{
+                if(j==0|| j==29) rs+="*";
+                else rs +="&nbsp&nbsp"
+            }
+        }
+        rs+="<br>"
+    }
+    document.write(rs);
+</script>
+</body>
+</html>

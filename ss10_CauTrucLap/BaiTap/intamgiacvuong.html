@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let rs = "";
+    for(let i=1;i<=5;i++){
+        for(let j=1;j<=i;j++){
+            rs += "*"
+        }
+        rs +="<br>";
+    }
+    rs+="<br>"
+
+    for(let i =0;i<5;i++){
+        for(let j=1;j<=5-i;j++){
+            rs +="*";
+        }
+        rs+="<br>"
+    }
+    rs+="<br>"
+    let flag =4;
+    for(let i=0;i<5;i++){
+        for(let j=1;j<=5;j++){
+            if(j<=flag){
+                rs+="&nbsp&nbsp";
+            }
+            else{
+                rs +="*";
+            }
+        }
+        rs+="<br>"
+        flag--;
+    }
+    rs+="<br>"
+    let flag2=0;
+    for(let i=0;i<5;i++){
+        for(let j=1;j<=5;j++){
+            if(j>flag2){
+                rs+="*"
+            }
+            else{
+                rs+="&nbsp&nbsp"
+            }
+
+        }
+        rs+="<br>"
+        flag2++;
+    }
+    document.write(rs)
+</script>
+</body>
+</html>

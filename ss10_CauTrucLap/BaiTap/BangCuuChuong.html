@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content"></div>
+<script>
+    let rs = "<table border='1px' cellpadding='5px'>";
+    let i,j;
+    for(i=1;i<=10;i++){
+        rs +="<tr>";
+        for(j=1;j<=10;j++){
+            rs+="<td>" + j +" * "+ i +"= "+parseInt(j*i)+"</td>";
+        }
+        rs +="</tr>"
+    }
+    rs += "</table>"
+    document.getElementById("content").innerHTML = rs;
+</script>
+</body>
+</html>
