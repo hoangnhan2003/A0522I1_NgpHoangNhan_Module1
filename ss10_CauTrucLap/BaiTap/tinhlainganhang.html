@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let money ;
+    money = +prompt("Nhap so tien vay");
+    let numberOfMonth;
+    numberOfMonth = +prompt("Nhap so thang vay");
+    let interest_rate ;
+    interest_rate = +prompt("Nhap lai suat");
+    let rs = money;
+    for(let i=1;i<=numberOfMonth;i++){
+        rs=rs + rs*interest_rate;
+    }
+    document.write("So tien vay ban dau "+ money+"<br>")
+    document.write("so thang vay"+ numberOfMonth +"<br>");
+    document.write("Lai suat"+ interest_rate+"<br>");
+    document.write("Tong tien lai = "+rs +"<br>")
+
+</script>
+</body>
+</html>
