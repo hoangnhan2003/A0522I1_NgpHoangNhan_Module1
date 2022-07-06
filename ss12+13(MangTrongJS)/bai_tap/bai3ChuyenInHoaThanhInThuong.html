@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let stringX ="The Quick Brown Fox";
+    let arrStr = [];
+    for(let i=0;i<stringX.length;i++){
+
+        if(!isNaN(stringX[i])) // !isNaN tra ve true khi la khoang trong or so
+        {
+            arrStr.push(stringX[i]);
+        }
+        else{
+            if(stringX[i] == stringX[i].toUpperCase()){
+                stringX[i]= stringX[i].toLowerCase()
+                arrStr.push(stringX[i].toLowerCase())
+            }
+            else if(stringX[i] == stringX[i].toLowerCase()){
+                arrStr.push(stringX[i].toUpperCase());
+            }
+        }
+    }
+    document.write(arrStr.join(""))
+</script>
+</body>
+</html>

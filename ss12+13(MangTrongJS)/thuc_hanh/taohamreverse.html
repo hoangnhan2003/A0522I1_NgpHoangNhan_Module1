@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tao ham reverse</title>
+</head>
+<body>
+<script>
+    let arr = [23,5,15,9,11,59,20];
+
+    function reverse1( array ) {
+        let index = array.length -1;
+        for(let i=0;i<array.length;i++){
+            if(index<= i){break;}
+            else{
+                let tmp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = tmp;
+                index--;
+            }
+
+
+        }
+    }
+    reverse1(arr);
+    console.log(arr);
+</script>
+</body>
+</html>

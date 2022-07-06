@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FakingText</title>
+</head>
+<body>
+<form>
+    <div style="margin-left: 40%">
+    <h2>Type AnyThing slowly</h2>
+    <textarea id="text" cols="29" rows="10" onkeydown="typeTextArea()"></textarea>
+    </div>
+</form>
+<script>
+    let arr = [" ","T","Ô","I"," ","L","À"," ","M","Ộ","T"," ","K","Ẻ"," ","N","G","Ố","C","!"];
+    let inputText = document.getElementById("text");
+    let Length = arr.length;
+    let i=0;
+    console.log(arr);
+    let n="";
+    function typeTextArea() {
+        inputText.value = null;
+       if(i<Length){
+           n+=arr[i];
+       }
+        i++;
+       inputText.value =n;
+       setTimeout("typeTextArea()",3000)
+    }
+    console.log(n);
+
+
+</script>
+</body>
+</html>

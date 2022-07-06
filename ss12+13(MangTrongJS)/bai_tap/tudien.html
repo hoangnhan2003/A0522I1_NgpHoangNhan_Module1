@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input_text">
+<input type="button" id="submit" onclick="Search()" value="Search">
+<p id="output_text"></p>
+<script>
+    let inputText = document.getElementById("input_text");
+    let Submit = document.getElementById("submit");
+    let textOutput = document.getElementById("output_text");
+    let text = "";
+    let arr1 = ["dog","cat","pig","tree","meat","water","melon"];
+    let arr2 = ["chó","mèo","lợn","cây","thịt","nước","dưa hấu"];
+    function Search() {
+        let valueText = inputText.value;
+        for(let i=0;i<arr1.length;i++){
+            if(valueText == arr1[i]){
+                text += "Word is:"+arr1[i]+" index: "+ i+"<br>";
+                text += "Translate to Tieng Viet "+ arr2[i]+"<br>";
+            }
+        }
+        textOutput.innerHTML = text;
+    }
+
+</script>
+</body>
+</html>

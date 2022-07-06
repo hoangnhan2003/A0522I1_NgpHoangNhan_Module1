@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TicTacToe</title>
+</head>
+<body>
+
+<h3>Table Caro Simple</h3>
+<p id="caro_game"></p>
+<br><br> <input type='button' value='Turn(x)' id="turn_play" onclick='changeValue()'>
+<script>
+    let b = document.getElementById("caro_game");
+    let board = [];
+    let data = "";
+    let turnplay = document.getElementById("turn_play");
+    for(let i=0;i<5;i++){
+        board[i] = ["-","-","-","-","-"]
+    }
+    for(let i=0;i<5;i++){
+        data+="<br>";
+        for(let j=0;j<5;j++){
+            data+= board[i][j]+"&nbsp&nbsp&nbsp&nbsp";
+        }
+    }
+
+    b.innerHTML = data;
+    let turn = true;
+    function changeValue() {
+
+        let posX = +prompt("Enter posX:");
+        let posY = +prompt("Enter posY:");
+        if(turn){
+            turnplay.value = "Turn(o)"
+            board[posX][posY] = "x";
+
+        }
+        else{
+            turnplay = "Turn(x)"
+            board[posX][posY] = "o";
+
+        }
+        data = "";
+        for(let i=0;i<5;i++){
+            data+= "<br>";
+            for(let j=0;j<5;j++){
+                data+= board[i][j]+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+            }
+        }
+
+        b.innerHTML = data;
+
+        turn = !turn;
+    }
+
+</script>
+</body>
+</html>

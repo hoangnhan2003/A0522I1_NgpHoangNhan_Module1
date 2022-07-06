@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tim kiem</title>
+</head>
+<body>
+<script>
+    let arr = [34,20,14,21,50,37];
+    let Search = +prompt("Enter a number ");
+    let max = arr[0];
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]==Search){
+            alert("Value "+ arr[i]+" found at index = "+ i);
+        }
+        if(max<arr[i]){
+            max = arr[i];
+        }
+    }
+    alert("Max Value is "+ max);
+</script>
+</body>
+</html>

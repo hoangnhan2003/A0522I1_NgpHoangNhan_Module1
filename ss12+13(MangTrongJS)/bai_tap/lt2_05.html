@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let StrA = prompt("Enter String A");
+    let StrB = prompt("Enter String B");
+    let Flag = true;
+    if(StrA.length == StrB.length){
+        for(let i=0;i<StrB.length;i++){
+            if(StrA[i]!=StrB[i]){
+                Flag = false;
+                break;
+            }
+        }
+    }
+    else{
+        Flag = false;
+    }
+    if(Flag){
+        document.write("String A and String B is similar");
+    }
+    else{
+        document.write("String A different wiht String B");
+    }
+</script>
+</body>
+</html>

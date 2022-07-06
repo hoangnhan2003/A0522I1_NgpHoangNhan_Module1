@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = prompt("");
+    let str = num.toString();
+    let rs = [str[0]];
+    for(let i=0;i<str.length;i++){
+        if(str[i]%2==0 && str[i+1]%2==0) rs.push("-",str[i]);
+        else{
+            rs.push(str[i]);
+        }
+    }
+    console.log(rs.join(""));
+</script>
+</body>
+</html>

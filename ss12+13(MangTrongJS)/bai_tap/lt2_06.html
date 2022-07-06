@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let StrA = prompt("Enter String");
+    let Arr = StrA.split("");
+    console.log(Arr)
+    for(let i=0;i<Arr.length;i++){
+
+        if(Arr[i]=="-"){
+            Arr[i]= "_";
+            console.log(Arr[i]);
+        }
+    }
+    document.write(Arr.join(""));
+</script>
+</body>
+</html>

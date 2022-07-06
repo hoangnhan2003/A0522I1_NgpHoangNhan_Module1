@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [0,2,10,14,3,32,6,7,12,86];
+    let max = arr[0];
+    let indexMAX=0;
+    for(let i=0;i<arr.length;i++){
+        if(max<arr[i]){
+            max = arr[i];
+            indexMAX =i;
+        }
+    }
+    document.write(arr +"<br>")
+    document.write("Giá trị lớn nhất trong mảng = "+ max+" ở vị trí "+ indexMAX);
+</script>
+</body>
+</html>

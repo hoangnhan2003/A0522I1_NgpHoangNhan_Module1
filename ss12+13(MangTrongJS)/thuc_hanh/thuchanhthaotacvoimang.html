@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thuc hanh thao tac voi mang</title>
+</head>
+<body>
+<div>
+    <label><b>Sample Screen</b></label><br>
+    <input id="input_element">
+    <input type="button" id="add" onclick="add()" value="Add" >
+    <button id="display" onclick="display()">Display</button>
+    <hr>
+    <p id="text"></p>
+    <script>
+        let arr = [];
+        let TextArr = document.getElementById("text");
+        let text = "";
+        let input = document.getElementById("input_element");
+
+        function add() {
+            let inputValue = document.getElementById("input_element").value;
+            arr.push(inputValue);
+            input.value = null;
+            input.focus();
+        }
+        function display() {
+            for(let i=0;i<arr.length;i++){
+                text += "Element "+ i+"=" + arr[i] +"<br>";
+            }
+            TextArr.innerHTML = text;
+        }
+    </script>
+</div>
+</body>
+</html>
