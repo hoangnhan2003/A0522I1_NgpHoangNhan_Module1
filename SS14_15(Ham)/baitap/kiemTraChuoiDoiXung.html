@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPalindrome(StrA) {
+        let dest = StrA.length -1;
+        for(let i=0;i<StrA.length;i++){
+            if(StrA[i]!=StrA[dest]){
+                return false;
+            }
+            dest--;
+        }
+        return true;
+    }
+    let Str = prompt("Enter the string:");
+    if(isPalindrome(Str)){
+        alert("Symmetrical String");
+    }
+    else{
+        alert("Unsymmetrical string");
+    }
+</script>
+</body>
+</html>

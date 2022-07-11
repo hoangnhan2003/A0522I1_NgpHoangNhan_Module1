@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung Dung quan li danh sach su dung ham</title>
+</head>
+<style>
+    .add_item {
+        display: flex;
+        background-color: lightgrey;
+        width: 400px;
+        height: 100px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .input_add {
+        height: 30px;
+        margin-top: auto;
+        margin-bottom: auto;
+        border: 1px solid transparent;
+        border-radius: 3px;
+    }
+
+    .btn {
+        height: 30px;
+        background-color: #52bd34;
+        display: block;
+        width: 50px;
+        border-radius: 6px;
+        border-color: transparent;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+
+    .btn:hover {
+        cursor: pointer;
+    }
+
+    .btn_input {
+        margin-left: 30px;
+    }
+
+    .item {
+        display: flex;
+        justify-content:space-around;
+    }
+
+    .item.bgrGrey {
+        background-color: lightgrey;
+        border-radius: 5px;
+    }
+</style>
+<body>
+
+<div class="container_add">
+    <h1>Add New Product</h1>
+    <div class="add_item">
+        <input class="input_add" type="text">
+        <button class="btn btn_input"> Add</button>
+    </div>
+</div>
+<div class="display_container">
+    <h2><b>Display All Product</b></h2>
+    <div class="header_display">
+        <p>Product Name</p>
+        <p class="counter_product"></p>
+    </div>
+    <ul class="list_product">
+        <li class="item">
+            <p>Sony Xperia</p>
+            <button class="btn">Edit</button>
+            <button class="btn">Delete</button>
+        </li>
+        <li class="item bgrGrey">
+            <p>Sony Xperia</p>
+            <button class="btn btn_edit">Edit</button>
+            <button class="btn btn_delete">Delete</button>
+        </li>
+    </ul>
+    <script>
+        const $ = document.querySelector.bind(document);
+        //const $$ = document.querySelectorAll(document);
+        const ListItem = document.querySelector('.list_product');
+
+        const btnAdd = $('.btn_input')
+        const btnDelete = document.querySelectorAll('.btn_delete');
+        let input = $('.input_add');
+
+
+
+        const app = {
+            list_product: ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S', 'Apple iPhone 8 Plus', 'Fujit F04E', 'Oppo A71'],
+            render: function () {
+                let htmls = this.list_product.map((product, index) => {
+                    return `
+    <li class="item ${index % 2 == 1 ? 'bgrGrey' : ''}" data-index =${index}>
+         <p class="text_item">${product}</p>
+        <button class="btn btn_edit">Edit</button>
+         <button class="btn btn_delete">Delete</button>
+         </li>`
+                })
+                ListItem.innerHTML = htmls.join('');
+            },
+            handle: function () {
+                const btnEdit = document.getElementsByClassName('btn_edit');
+                let _this = this;
+                btnAdd.onclick = function(){
+                    _this.list_product.push(input.value)
+                    input.value =null;
+                    input.focus();
+                    _this.render();
+                }
+                ListItem.onclick = function (e) {
+                    const CurrentItem = e.target.closest('.item');
+                    const editClick = e.target.closest('.btn_edit');
+                    const deleteClick = e.target.closest('.btn_delete');
+                    const  pItem = e.target.closest('.text_item');
+                   
+                    if(editClick){
+                        CurrentItem.children[0].textContent = prompt("Nhap thay doi cua ban")
+                    }
+                    if(deleteClick){
+                        console.log(123)
+                        _this.list_product.splice(CurrentItem.dataset.index,1);
+                        _this.render();
+                    }
+                }
+
+
+            },
+            start: function () {
+                this.render();
+                this.handle();
+            }
+        }
+        app.start();
+    </script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="alertMessege()">Xin Chao</button>
+<button  id="number_increase"onclick="increase(this.value)">0</button>
+
+<script>
+    function alertMessege() {
+        alert("Xin Chao");
+    }
+    function increase(a) {
+        a++;
+        document.getElementById("number_increase").value = a;
+        document.getElementById("number_increase").innerHTML = a;
+    }
+    let a = +prompt("Enter number1");
+    let b =+prompt("Enter number2");
+    function compare(a,b) {
+        if(a>b){
+            alert("Number 1 bigger than number 2");
+        }
+        else{
+            return a+b;
+        }
+    }
+    compare(a,b);
+    function addNumber() {
+        let firstNum = 4;
+        let secondNum = 5;
+        return firstNum+secondNum;
+    }
+    result =0;
+    alert("Gia tri cua result truoc khi goi ham = "+result);
+    result = addNumber();
+    alert("Gia tri cua result sau khi goi ham = "+result);
+    let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major","Leo"];
+    let nameOfStar = prompt("Enter name of Star");
+    function Search(Str,name) {
+        let Flag = false;
+        for(let i=0;i<Str.length;i++){
+            if(name == Str[i]){
+                Flag = true;
+                alert("Name of constellation is "+ constellation[i]);
+            }
+
+        }
+        if(!Flag){
+            alert("name of Star be enter is not in Array");
+        }
+
+    }
+    Search(stars,nameOfStar);
+</script>
+</body>
+</html>
