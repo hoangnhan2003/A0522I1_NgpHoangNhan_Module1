@@ -68,7 +68,8 @@
         <p class="counter_product"></p>
     </div>
     <ul class="list_product">
-        <li class="item">
+        <table id="table_item" cellpadding="50px">
+       <!-- <li class="item">
             <p>Sony Xperia</p>
             <button class="btn">Edit</button>
             <button class="btn">Delete</button>
@@ -77,31 +78,30 @@
             <p>Sony Xperia</p>
             <button class="btn btn_edit">Edit</button>
             <button class="btn btn_delete">Delete</button>
-        </li>
+        </li> -->
+        </table>
     </ul>
     <script>
         const $ = document.querySelector.bind(document);
-        //const $$ = document.querySelectorAll(document);
         const ListItem = document.querySelector('.list_product');
-
         const btnAdd = $('.btn_input')
         const btnDelete = document.querySelectorAll('.btn_delete');
         let input = $('.input_add');
-
+        const table_item = $('#table_item');
 
 
         const app = {
             list_product: ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S', 'Apple iPhone 8 Plus', 'Fujit F04E', 'Oppo A71'],
             render: function () {
                 let htmls = this.list_product.map((product, index) => {
-                    return `
-    <li class="item ${index % 2 == 1 ? 'bgrGrey' : ''}" data-index =${index}>
-         <p class="text_item">${product}</p>
-        <button class="btn btn_edit">Edit</button>
-         <button class="btn btn_delete">Delete</button>
-         </li>`
+                    return `<tr>
+            <li class="item ${index % 2 == 1 ? 'bgrGrey' : ''}" data-index =${index}>
+                 <td><p class="text_item">${product}</p>></td>
+                <td><button class="btn btn_edit">Edit</button></td>
+                 <td><button class="btn btn_delete">Delete</button></td>
+               </li></tr>`
                 })
-                ListItem.innerHTML = htmls.join('');
+                table_item.innerHTML = htmls.join('');
             },
             handle: function () {
                 const btnEdit = document.getElementsByClassName('btn_edit');
@@ -116,8 +116,6 @@
                     const CurrentItem = e.target.closest('.item');
                     const editClick = e.target.closest('.btn_edit');
                     const deleteClick = e.target.closest('.btn_delete');
-                    const  pItem = e.target.closest('.text_item');
-                   
                     if(editClick){
                         CurrentItem.children[0].textContent = prompt("Nhap thay doi cua ban")
                     }
