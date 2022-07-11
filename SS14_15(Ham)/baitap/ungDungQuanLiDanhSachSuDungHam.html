@@ -24,14 +24,16 @@
     }
 
     .btn {
-        height: 30px;
+        height: 40px;
         background-color: #52bd34;
         display: block;
-        width: 50px;
+        width: 70px;
         border-radius: 6px;
         border-color: transparent;
         margin-bottom: auto;
         margin-top: auto;
+        color: lightgrey;
+        font-weight: 900;
     }
 
     .btn:hover {
@@ -43,8 +45,7 @@
     }
 
     .item {
-        display: flex;
-        justify-content:space-around;
+
     }
 
     .item.bgrGrey {
@@ -64,28 +65,17 @@
 <div class="display_container">
     <h2><b>Display All Product</b></h2>
     <div class="header_display">
-        <p>Product Name</p>
+        <h3>Product Name</h3>
         <p class="counter_product"></p>
     </div>
     <ul class="list_product">
-        <table id="table_item" cellpadding="50px">
-       <!-- <li class="item">
-            <p>Sony Xperia</p>
-            <button class="btn">Edit</button>
-            <button class="btn">Delete</button>
-        </li>
-        <li class="item bgrGrey">
-            <p>Sony Xperia</p>
-            <button class="btn btn_edit">Edit</button>
-            <button class="btn btn_delete">Delete</button>
-        </li> -->
+        <table id="table_item" cellpadding="20px" width="1000px" cellspacing="0">
         </table>
     </ul>
     <script>
         const $ = document.querySelector.bind(document);
         const ListItem = document.querySelector('.list_product');
         const btnAdd = $('.btn_input')
-        const btnDelete = document.querySelectorAll('.btn_delete');
         let input = $('.input_add');
         const table_item = $('#table_item');
 
@@ -94,12 +84,12 @@
             list_product: ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S', 'Apple iPhone 8 Plus', 'Fujit F04E', 'Oppo A71'],
             render: function () {
                 let htmls = this.list_product.map((product, index) => {
-                    return `<tr>
-            <li class="item ${index % 2 == 1 ? 'bgrGrey' : ''}" data-index =${index}>
-                 <td><p class="text_item">${product}</p>></td>
+                    return `
+            <tr class="item ${index % 2 == 1 ? 'bgrGrey' : ''}" data-index =${index}>
+                 <td><p class="text_item">${product}</p></td>
                 <td><button class="btn btn_edit">Edit</button></td>
                  <td><button class="btn btn_delete">Delete</button></td>
-               </li></tr>`
+               </tr>`
                 })
                 table_item.innerHTML = htmls.join('');
             },
@@ -125,8 +115,6 @@
                         _this.render();
                     }
                 }
-
-
             },
             start: function () {
                 this.render();
