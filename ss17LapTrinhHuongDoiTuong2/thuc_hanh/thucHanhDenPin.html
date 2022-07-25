@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="turnOn()">On</button>
+<button onclick="turnOff()">OFF</button>
+<button onclick="light()">Light </button>
+<script>
+    class Battery{
+        constructor() {
+            this.energy = null ;
+        }
+        setEnergy(Battery){
+            this.energy = Battery;
+        }
+        getEnergy(){
+            return this.energy;
+        }
+        decreaseEnergy(){
+            if(this.energy>0){
+                this.energy-=1;
+            }
+
+
+        }
+
+    }
+
+    class FlashLamp{
+        constructor(battery) {
+            this.status = false;
+            this.battery = battery.energy;
+        }
+        turnOn(){
+            this.status = true;
+        }
+        turnOff(){
+            this.status = false;
+        }
+        setBattery(){
+            const charge =setInterval(()=>{
+                this.battery+=1;
+            },5000)
+            if(this.battery >=100){
+                clearInterval(charge);
+            }
+         }
+         getBatteryInfo(){
+            return this.battery;
+         }
+         light(){
+            if(this.status){
+                alert("Đèn đang sáng");
+            }
+            else{
+                alert("Đèn ko sáng");
+            }
+         }
+    }
+    let bat1 = new Battery();
+    bat1.setEnergy(100);
+    bat1.decreaseEnergy();
+    let lamp1 = new FlashLamp(bat1);
+    function turnOn() {
+        lamp1.turnOn();
+    }
+    function turnOff() {
+        lamp1.turnOff();
+    }
+    function light() {
+        lamp1.light();
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="game">
+    <img width="250px" height="250px" style="position: absolute;top: 500px;left: 300px " src= "../image/pikachu.png">
+    <!--style="position: absolute; top:100px " src="../image/pikachu.png" width="100px"-->
+</div>
+<script>
+    let gameStar = document.getElementById('game');
+    class Hero{
+        constructor(image,top,left,size) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+                this.size = size;
+        }
+        CreateHero(){
+            return `<img width="${this.size}px" height="${this.size}px" style="position: absolute;top:${this.top}px;left: ${this.left}px " src= "${this.image}">`
+        }
+        Render(){
+
+            gameStar.innerHTML = this.CreateHero();
+        }
+        moveRight(){
+            if(this.left< window.innerWidth){
+                this.left +=10;
+                this.Render();
+            }
+
+        }
+        moveDown(){
+            if(this.top < window.innerHeight){
+                this.top+=10;
+                this.Render();
+            }
+        }
+        moveUp(){
+            if(this.top>0){
+                this.top -=10;
+                this.Render();
+            }
+
+        }
+        moveLeft(){
+            if(this.left > 0){
+                this.left-=10;
+                this.Render();
+            }
+        }
+    }
+    /*ArrowUp ArrowDown ArrowRight ArrowLeft*/
+    window.addEventListener('keydown',(e)=>{
+
+        let move = setInterval(()=>{
+            switch (e.key) {
+                case"ArrowUp":
+                    if(hero.top > 0){
+                        hero.moveUp();
+                    }
+                    else {
+                        clearInterval(move);
+                    }
+                    break;
+                case"ArrowDown":
+
+                        if(hero.top < 2000){
+                            hero.moveDown();
+                        }
+                        else{
+                            clearInterval(move)
+                        }
+                    break;
+                case"ArrowRight":
+                        if(hero.left < window.innerWidth - hero.size){
+                            hero.moveRight();
+                        }
+                        else{
+                            clearInterval(move);
+                        }
+                    break;
+                case"ArrowLeft":
+                    if(hero.left >0){
+                        hero.moveLeft();
+                    }
+                    else{
+                        clearInterval(move)
+                    }
+                    break;
+            }
+        },10)
+
+    })
+    let hero = new Hero("../image/pikachu.png",500,300,250);
+    hero.Render();
+    </script>
+</body>
+</html>

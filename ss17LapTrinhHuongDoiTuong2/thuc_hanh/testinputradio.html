@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input class="test" type="radio" name="abc" value="LC1" >LC1
+<input class="test" type="radio" name="abc" value="LC2" >LC2
+<button onclick="hienthiluachon()"> Click</button>
+<script>
+    function hienthiluachon(){
+    let radio = document.getElementsByName('abc');
+
+    console.log(radio[0].value)
+    console.log(radio[1].value)
+
+    if(radio){
+        if(radio[1].checked){
+            alert("ban da chon lua chon 2 ");
+
+        }
+        else if(radio[0].checked){
+            alert("Ban da chon 1");
+        }
+        else{
+            alert("KO co lua chon");
+        }
+    }
+</script>
+</body>
+</html>

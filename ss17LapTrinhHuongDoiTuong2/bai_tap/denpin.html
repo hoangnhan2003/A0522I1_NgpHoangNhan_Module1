@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<img src="../image/pic_bulboff.gif" id="image">
+<p id="text"></p>
+<button class="turnOn" onclick="turnOnOrOFF()">Turn On</button>
+<script>
+    const img = document.getElementById('image');
+    const btn = document.getElementsByClassName('turnOn');
+    const text = document.getElementById('text');
+    class SwitchButton{
+        constructor() {
+            this.status = false;
+        }
+        switchOnOff(){
+            this.status = !this.status;
+        }
+    }
+    class Lamp{
+        constructor(button) {
+            this.button = button;
+            this.count = 0;
+            this.burn = false;
+        }
+        Switch(button){
+            button.switchOnOff();
+            if(!button.burn ){
+                if(button.status){
+                    if(this.count > 10){
+                        img.src = "../image/pic_bulboff.gif";
+                        text.innerText ="Đèn cháy rồi"
+                        this.burn = true;
+                    }
+                    else{
+                        img.src = "../image/pic_bulbon.gif";
+                        text.innerText = "Đèn đang bật";
+                        this.count++;
+                    }
+
+
+
+                }
+                else{
+                    img.src = "../image/pic_bulboff.gif";
+                    text.innerText = "Đèn đang tắt";
+
+                }
+            }
+
+
+        }
+    }
+    let button = new SwitchButton();
+    let lamp = new Lamp(button);
+    function turnOnOrOFF() {
+        lamp.Switch(button);
+    }
+</script>
+</body>
+</html>
