@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn {
+            height: 40px;
+            background-color: #52bd34;
+            display: block;
+            width: 70px;
+            border-radius: 6px;
+            border-color: transparent;
+            margin-bottom: auto;
+            margin-top: auto;
+            color: lightgrey;
+            font-weight: 900;
+        }
+        .btn:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<button class="btn " style="color: red;background-color: #bcfff1" onclick="addVehicle()">Add </button>
+
+<table id="table_item" cellpadding="20px" width="1000px" cellspacing="0" border="1px solid black">
+    <tr class="item ${index % 2 == 1 ? 'bgrGrey' : ''}" data-index =${index}>
+        <td><p class="text_item">Biến số Xe</p></td>
+        <td><p class="text_item">Họ Tên</p></td>
+        <td><p class="text_item">Chứng minh nhân dân</p></td>
+        <td><p class="text_item">Hãng xe</p></td>
+        <td><p class="text_item">Phí</p></td>
+        <td></td>
+    </tr>
+</table>
+<script>
+    const table_item = document.getElementById('table_item');
+    const hangXM = ['Honda','Yamaha','Sym','Piaggio','Suzuki','Ducati','Hãng khác'];
+    const ArrCustomer = [
+
+    ]
+    class Xe{
+        constructor(bso,ten,cmnd,hxm,phi) {
+            this.bso = bso;
+            this.ten = ten;
+            this.cmnd = cmnd;
+            this.hxm = hxm;
+            this.phi = phi;
+        }
+
+        Update(arr){
+            arr.push({
+                bso: this.bso,
+                ten: this.ten,
+                cmnd:this.cmnd,
+                hxe:this.hxm,
+                phi:this.phi,
+            })
+        }
+    }
+    function Render(arr) {
+        let htmls = arr.map((info,index)=>{
+            return `
+                    <tr class="item ${index % 2 == 1 ? 'bgrGrey' : ''}" data-index =${index}>
+                        <td><p class="text_item">${info.bso}</p></td>
+                        <td><p class="text_item">${info.ten}</p></td>
+                        <td><p class="text_item">${info.cmnd}</p></td>
+                        <td><p class="text_item">${info.hxe}</p></td>
+                        <td><p class="text_item">${info.phi}</p></td>
+                        <td><button class="btn btn_delete">Delete</button></td>
+                    </tr>
+                `
+        })
+        table_item.innerHTML = htmls.join('');
+    }
+    function addVehicle() {
+        let amount = + prompt("Nhap so luong xe muon nhap");
+        for(let i=0;i<amount;i++){
+            let ten,bso,cmnd,hxe,chon,phi;
+            do {
+                bso= prompt("Nhập biển số");
+                ten = prompt("Nhập tên");
+                cmnd = +prompt("Nhập cmnd");
+                chon = +prompt("Nhập từ 1 tới 7 tương ứng" + hangXM);
+                hxe= hangXM[chon-1];
+                phi = +prompt("Nhập phí")
+            }while ( bso.length > 20 || ten.length >40 || hxe > 7 || hxe < 1);
+             var car = new Xe(bso,ten,cmnd,hxe,phi);
+             car.Update(ArrCustomer);
+        }
+        Render(ArrCustomer);
+    }
+    table_item.onclick = function (e) {
+        const CurrentItem = e.target.closest('.item');
+        const deleteClick = e.target.closest('.btn_delete');
+        if(deleteClick){
+            let accept = confirm("Bạn có chắc muốn xóa thông tin xe này ra khỏi danh sách");
+            if(accept){
+                ArrCustomer.splice(CurrentItem.dataset.index,1);
+                Render(ArrCustomer);
+            }
+
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

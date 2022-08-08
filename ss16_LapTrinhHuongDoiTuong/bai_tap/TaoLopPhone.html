@@ -5,6 +5,127 @@
     <title>Title</title>
 </head>
 <body>
-<script src="TaoLopPhone.js"></script>
+<div>
+    <table cellspacing="30px" border="1px solid " >
+
+        <tr>
+            <span id="status_battery"></span>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+            <td><button class="send_messenger" onclick="sendMess()">Send Messenger</button></td>
+            <td> <button class="texting_mess" onclick="textingMess()">Texting</button></td>
+        </tr>
+        <tr>
+            <td><button class="see_arrived_mess" onclick="seeArrivedMess()">See arrived messe</button></td>
+            <td><button class="see_sent_mess" onclick="seeSentMess()"> See sent Mess</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="turnOn()">TurnOn</button></td>
+
+        </tr>
+    </table>
+    <p id="text"></p>
+</div>
+<script>
+    class PHONE {
+        constructor(id,name) {
+            this.id = id;
+            this.name = name;
+            this.battery = 100;
+            this.memory1 = []; // luu trữ tin nhắn đến
+            this.memory2 = []; // lưu trữ tin nhắn đã gửi
+            this.memory3 = []; // lưu trữ soạn thảo
+            this.statusPhone = false;
+        }
+        seeArriveMessenger(){
+            if(this.statusPhone && this.battery >0){
+                this.battery -=1;
+                return this.memory1;
+            }
+
+        }
+        seeSentMessenger(){
+            if(this.statusPhone && this.battery >0){
+                this.battery-=1;
+                return this.memory2;
+            }
+        }
+        turnOn(){
+            if(this.statusPhone){
+                this.statusPhone = false;
+            }
+            else{
+                this.statusPhone = true;
+            }
+        }
+        saveSentMessenger(message){
+            if(this.statusPhone && this.battery >0){
+                this.battery -=1;
+                this.memory1.push(message);
+            }
+        }
+        saveTextingMessenger(message){
+            if(this.statusPhone && this.battery >0){
+                this.memory1.push(message);
+                this.battery-=1;
+
+            }
+        }
+        setMessenger(message){
+            if(this.statusPhone && this.battery > 0){
+                this.battery -=1;
+                this.memory3.push(message);
+
+            }
+
+
+        }
+        sendMessenger(message,phone){
+            if(this.statusPhone && this.battery >0){
+                this.battery-=1;
+                phone.setMessenger(message);
+                this.memory2.push(message);
+                phone.memory1.push(message);
+            }
+        }
+    }
+    let iphone = new PHONE(1,'iphone');
+    let samsung = new PHONE(2,'samsung');
+    let p = document.getElementById("text")
+    document.getElementById('status_battery').innerHTML = iphone.battery+"%";
+    function sendMess() {
+        let mess = prompt("Mess:");
+        iphone.sendMessenger(mess,samsung);
+        document.getElementById('status_battery').innerHTML = iphone.battery+"%";
+    }
+    function textingMess() {
+        let mess = prompt("mess:");
+        iphone.setMessenger(mess);
+        document.getElementById('status_battery').innerHTML = iphone.battery+"%";
+    }
+    function seeArrivedMess() {
+        p.innerText = iphone.seeArrivedMessaged();
+        document.getElementById('status_battery').innerHTML = iphone.battery+"%";
+    }
+    function seeSentMess() {
+        p.innerText = iphone.seeSentMessenger();
+        document.getElementById('status_battery').innerHTML = iphone.battery+"%";
+    }
+    function turnOn() {
+        iphone.turnOn();
+        if(iphone.statusPhone){
+            alert("Phone: ON");
+        }
+        else{
+            alert("Phone: OFF")
+        }
+        document.getElementById('status_battery').innerHTML = iphone.battery+"%";
+    }
+
+
+</script>
 </body>
 </html>

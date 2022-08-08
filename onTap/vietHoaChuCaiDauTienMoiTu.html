@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viet Hoa Chu cai dau tien </title>
+</head>
+<body>
+<script>
+    var str = prompt("Enter string: ");
+    str = str.split('');
+
+    for(let i=0; i<str.length; i++){
+        if( str[i] === ' ' && str[i+1] === ' '){
+            str.splice(i,1);
+            i--;
+        }
+    }
+     let array = [str[0].toUpperCase()]
+     for(let i=1; i<str.length; i++){
+         if(str[i-1] === " " && str[i] !== " "){
+             array.push(str[i].toUpperCase())
+         }else {
+             array.push(str[i].toLowerCase())
+         }
+     }
+     array = array.join("")
+    alert(array)
+
+
+    //console.log(Str.replace(/\s/g, ''));
+</script>
+</body>
+</html>

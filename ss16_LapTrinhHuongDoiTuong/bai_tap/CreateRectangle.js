@@ -25,30 +25,14 @@ let  Rectangle=function (x,y) {
 function getRandomHex() {
     return Math.floor(Math.random()*255)
 }
-/*function getRandomColor(){
-    var red = getRamdomHex();
-    var blue = getRamdomHex();
-    var green = getRamdomHex();
-    return "rbg(" + red + "," + blue + "," + green + ")";
-}*/
+
 function getRandomColor(){
     var red = getRandomHex();
     var green = getRandomHex();
     var blue = getRandomHex();
     return "rgb(" + red + "," + blue + "," + green +")";
 }
-/*function createRectangle() {
-    var crt = document.getElementById("canva_rectangle").getContext("2d");
-    var x = Math.random()* window.innerWidth;
-    var y = Math.random()* window.innerHeight;
-    var width = Math.floor(Math.random()*70);
-    var height = Math.floor(Math.random()*70);
-    var color = getRandomColor();
-   // crt.fillStyle = color;
-    crt.fillRect(x,y,width,height)
-    crt.fillStyle = color;
 
-}*/
 
 let rectangle = new Rectangle(2,3);
 function Draw() {

@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Ung Dung quan li danh sach su dung ham</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Press+Start+2P&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <style>
+    *{
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px;
+    }
     .add_item {
         display: flex;
         background-color: lightgrey;
@@ -14,7 +21,6 @@
         box-sizing: border-box;
         justify-content: center;
     }
-
     .input_add {
         height: 30px;
         margin-top: auto;
@@ -52,6 +58,16 @@
         background-color: lightgrey;
         border-radius: 5px;
     }
+    .counter_product{
+        color: red;
+        font-size: 20px;
+        font-weight: 800;
+    }
+    .header_display{
+        display: flex;
+        justify-content: space-between;
+        width: 1000px;
+    }
 </style>
 <body>
 
@@ -66,6 +82,7 @@
     <h2><b>Display All Product</b></h2>
     <div class="header_display">
         <h3>Product Name</h3>
+
         <p class="counter_product"></p>
     </div>
     <ul class="list_product">
@@ -78,8 +95,7 @@
         const btnAdd = $('.btn_input')
         let input = $('.input_add');
         const table_item = $('#table_item');
-
-
+        const counter_product = $('.counter_product');
         const app = {
             list_product: ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S', 'Apple iPhone 8 Plus', 'Fujit F04E', 'Oppo A71'],
             render: function () {
@@ -92,6 +108,7 @@
                </tr>`
                 })
                 table_item.innerHTML = htmls.join('');
+                counter_product.innerHTML = `${this.list_product.length} products`
             },
             handle: function () {
                 const btnEdit = document.getElementsByClassName('btn_edit');

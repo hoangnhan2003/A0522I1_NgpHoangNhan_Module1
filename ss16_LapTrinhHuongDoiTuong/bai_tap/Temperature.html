@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script >
+    class temperature{
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+        convertToF(){
+            return (this.celsius*1.8)+32;
+        }
+        convertToKenvin(){
+            return this.celsius +273;
+        }
+
+    }
+    let temp = new temperature(37);
+    document.write("Celsius = "+ temp.celsius+"<br>");
+    document.write("F = "+ temp.convertToF() + "<br>");
+    document.write("Kenvin = "+ temp.convertToKenvin()+"<br>")
+</script>
+</body>
+</html>

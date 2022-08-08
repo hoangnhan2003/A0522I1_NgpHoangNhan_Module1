@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkSNT(a) {
+        for(let i=2;i<=Math.sqrt(a);i++){
+            if(a%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    function Fibonacci(x) {
+        var arr = [0, 1, 1];
+        for (let i = 2; i >0; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
+            if(arr[i] > x){
+                arr.pop();
+                break;
+            }
+        }
+        return arr;
+
+    }
+    document.write(Fibonacci(10000)+"<br>")
+
+    function display(x) {
+        let arrF = Fibonacci(x);
+        for(let i= 2 ; i<=x;i++ ){
+
+            if(checkSNT(i) && arrF.includes(i)){
+                document.write(" "+ i);
+            }
+        }
+    }
+    display(100000);
+</script>
+</body>
+</html>

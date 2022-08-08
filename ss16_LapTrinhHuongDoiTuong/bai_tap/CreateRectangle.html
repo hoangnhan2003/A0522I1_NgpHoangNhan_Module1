@@ -5,7 +5,39 @@
     <title>Title</title>
 </head>
 <body>
-    <canvas id="canva_rectangle" width="1700px" height="900px" style="border: 1px solid #c3c3c3"></canvas>
-<script src="CreateRectangle.js"></script>
+    <canvas id="canva_rectangle" width="500px" height="500px" style="border: 1px solid #c3c3c3"></canvas>
+    <p id="text"></p>
+<script>
+    class Rectangle{
+        constructor(length,width) {
+            this.length = length;
+            this.width = width;
+
+        }
+        getPeriMeter(){
+            return (this.length+this.width)*2;
+        }
+        getArea(){
+            return this.length*this.width;
+        }
+        createRectangle(){
+            let ctx = document.getElementById('canva_rectangle').getContext("2d");
+            ctx.fillStyle = "Blue";
+            ctx.fillRect(100,100,this.length,this.width);
+
+        }
+        displayLength(){
+            let text;
+            text = "Length:" + this.length+" Width: "+ this.width;
+            console.log(this.length, this.width)
+            document.getElementById('text').innerHTML = text;
+
+        }
+
+    }
+    let Rect1 = new Rectangle(160,80);
+    Rect1.createRectangle();
+    Rect1.displayLength();
+</script>
 </body>
 </html>

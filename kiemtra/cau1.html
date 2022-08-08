@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let count = 0;
+    let nSize;
+    do {
+
+        if (count === 0) {
+            nSize = +prompt("Enter size of array");
+        } else {
+            nSize = +prompt("Re-Enter size of array");
+        }
+        count++;
+    } while (nSize > 50 || nSize < 0)
+    for (let i = 0; i < nSize; i++) {
+        arr[i] = +prompt("Enter element " + i);
+    }
+    document.write(arr + "<br>");
+
+    function check(arr) {
+        for (let i = 0; i < arr.length - 2; i++) {
+            if (arr[i + 1] <= arr[i] && arr[i + 2] <= arr[i + 1]
+                || arr[i] <= arr[i + 1] && arr[i + 1] <= arr[i + 2] || arr[i] === arr[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    document.write("Mảng dạng sóng: " + check(arr));
+</script>
+</body>
+</html>

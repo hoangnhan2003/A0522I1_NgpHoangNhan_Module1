@@ -2,9 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Ung Dung quan li danh sach su dung ham</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Press+Start+2P&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
+<style>
+    *{
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px;
+
+    }
+    .add_item {
+        display: flex;
+        background-color: lightgrey;
+        width: 400px;
+        height: 100px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+
+    .input_add {
+        height: 30px;
+        margin-top: auto;
+        margin-bottom: auto;
+        border: 1px solid transparent;
+        border-radius: 3px;
+    }
+
+    .btn {
+        height: 40px;
+        background-color: #52bd34;
+        display: block;
+        width: 70px;
+        border-radius: 6px;
+        border-color: transparent;
+        margin-bottom: auto;
+        margin-top: auto;
+        color: white;
+        font-weight: 900;
+    }
+
+    .btn:hover {
+        cursor: pointer;
+    }
+
+    .btn_input {
+        margin-left: 30px;
+    }
+
+    .item {
+
+    }
+
+    .item.bgrGrey {
+        background-color: lightgrey;
+        border-radius: 5px;
+    }
+    .counter_product{
+        color: red;
+        font-size: 20px;
+        font-weight: 800;
+    }
+    .header_display{
+        display: flex;
+        justify-content: space-between;
+        width: 1000px;
+    }
+</style>
 <body>
-$END$
+
+<div class="container_add">
+    <h1>Add New Product</h1>
+    <div class="add_item">
+        <input class="input_add" type="text" placeholder="new product">
+        <button class="btn btn_input"> Add</button>
+    </div>
+</div>
+<div class="display_container">
+    <h2><b>Display All Product</b></h2>
+    <div class="header_display">
+        <h3>Product Name</h3>
+
+        <p class="counter_product"></p>
+    </div>
+    <ul class="list_product">
+        <table id="table_item" cellpadding="20px" width="1000px" cellspacing="0">
+        </table>
+    </ul>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const ListItem = document.querySelector('.list_product');
+        const btnAdd = $('.btn_input')
+        let input = $('.input_add');
+        const table_item = $('#table_item');
+        const counter_product = $('.counter_product');
+        const list_product = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S', 'Apple iPhone 8 Plus', 'Fujit F04E', 'Oppo A71'];
+        let rs = "";
+        for(let i=0;i<list_product.length;i++){
+            rs+='<tr class="item" '+i%2==1?'brgrey':''+ '<td><p class="text_item">'+list_product[i]+'</p></td> <td><button class="btn btn_edit">Edit</button></td> <td><button class="btn btn_delete">Delete</button></td></tr>'
+
+        }
+        table_item.innerHTML = rs;
+    </script>
+</div>
+
 </body>
 </html>

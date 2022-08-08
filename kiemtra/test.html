@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="myFunction()">Run</button>
+
+<p id="demo"></p>
+
+<script>
+    var subject = [4, 144, 25, 16];
+    document.getElementById("demo").innerHTML = subject;
+    function compare(a, b) {
+        return b - a;
+    }
+    function myFunction() {
+        subject.sort(compare);
+        document.getElementById("demo").innerHTML = subject;
+    }
+    let picture = {
+        name: "Mona Lisa",
+        artist: "Da Vinci",
+        isAbstract: false,
+    }
+    let copyOfPicture = picture
+    copyOfPicture.isAbstract = true
+    console.log(copyOfPicture === picture)
+    console.log(picture);
+    console.log(copyOfPicture)
+</script>
+</body>
+</html>

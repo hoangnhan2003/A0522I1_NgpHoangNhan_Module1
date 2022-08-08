@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function KTNN(x) {
+        if(x % 4 == 0 && x % 100!=0 || x%400==0){
+            return true;
+        }
+        else return false;
+    }
+    document.write(KTNN(2001))
+    let inputDate
+    do{
+        inputDate = prompt("Enter Date");
+        let inputDate1 = inputDate;
+        let dd = inputDate1.splice(0,2)
+        let mm = inputDate1.splice(3,2);
+        let yy = inputDate1.splice(6,4);
+        console.log(inputDate1+"  - " + inputDate)
+        console.log( dd +" " + mm+ " "+ yy)
+
+
+    } while (inputDate[2]!='/' || inputDate[5]!='/' || parseFloat(dd) <0 || parseFloat(dd) >31 ||
+        parseFloat(mm)<0 || parseFloat(mm)>12 || parseInt(yy)<0)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1,2,3,3,2,4];
+    function count(arr,i) {
+        let rs =0;
+        for(let number of arr){
+            if(number == i){
+                rs++;
+            }
+        }
+        return rs;
+    }
+    document.write("Array input = ["+arr+"]<br>")
+    let arrTemp = [];
+    function display(arr) {
+        let rs = [];
+        for(let i=0;i<arr.length;i++){
+            if(!arrTemp.includes(arr[i])){
+                document.write(arr[i]+": "+ count(arr,arr[i])+" times <br>");
+                arrTemp.push(arr[i]);
+            }
+        }
+    }
+    display(arr)
+
+</script>
+</body>
+</html>

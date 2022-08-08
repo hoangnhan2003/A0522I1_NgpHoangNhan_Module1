@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #option{
+            display: table;
+        }
+        button{
+            width: 80px;
+            height: 40px;
+            background-color: #52bd34;
+            color: #faef00;
+            border-radius: 4px;
+            border: 0px ;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        #Bill{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<table id="option" cellpadding="10px 20px" cellspacing="0" border="1px solid black">
+    <tr>
+        <th>STT</th>
+        <th> <p>Tên sản Phẩm</p> </th>
+        <th>Giá thành</th>
+        <th>  </th>
+    </tr>
+    <tr>
+        <th>1</th>
+        <th> <p>CAFE</p> </th>
+        <th>10000 đ</th>
+        <th> <button data-index = 0>Buy</button> </th>
+    </tr>
+    <tr>
+        <th>2</th>
+        <th> <p>Cam vắt</p> </th>
+        <th>15000 đ</th>
+        <th> <button data-index = 1>Buy</button> </th>
+    </tr>
+    <tr>
+        <th>3</th>
+        <th> <p>Nước ép cà rốt</p></th>
+        <th>13000 đ</th>
+        <th> <button  data-index = 2>Buy</button> </th>
+    </tr>
+    <tr>
+        <th>4</th>
+        <th> <p>Nước ép cà chua</p> </th>
+        <th>15000 đ</th>
+        <th> <button data-index = 3>Buy</button> </th>
+    </tr>
+    <tr>
+        <th>5</th>
+        <th> <p>Nước lọc</p> </th>
+        <th>5000 đ</th>
+        <th> <button  data-index = 4>Buy</button> </th>
+    </tr>
+    <tr>
+        <th>6</th>
+        <th> <p>Nước dừa</p> </th>
+        <th>8000 đ</th>
+        <th> <button  data-index = 5>Buy</button> </th>
+    </tr>
+    <tr>
+        <th>7</th>
+        <th> </th>
+        <th></th>
+        <th> <button data-index = 6 onclick="calculation()">TOTAL BILL </button> </th>
+    </tr>
+</table>
+<table id="Bill" cellpadding="10px 20px" cellspacing="0" border="1px solid black">
+
+
+</table>
+
+<script>
+    let option = document.getElementById('option');
+    let BILL = document.getElementById('Bill')
+    const Product = [
+        {
+            name:"cafe",
+            cost:10000,
+            unit:"ly",
+            mount:0,
+            totalMoney:0
+        },
+        {
+            name:'Cam vắt',
+            cost:15000,
+            unit:"ly",
+            mount:0,
+            totalMoney:0
+
+        },
+        {
+            name:'nước ép cà rốt',
+            cost:13000,
+            unit:"ly",
+            mount:0,
+            totalMoney:0
+        },
+        {
+            name:'nước ép cà chua',
+            cost: 15000,
+            unit:'ly',
+            mount:0,
+            totalMoney:0
+        },
+        {
+            name:'nước lọc',
+            cost:5000,
+            unit:'chai',
+            mount:0,
+            totalMoney:0
+        },
+        {
+            name:'nước dừa',
+            cost:8000,
+            unit:'ly',
+            mount:0,
+            totalMoney:0
+        }
+    ]
+    option.onclick = function (e) {
+        let mount ;
+        let indexChoose = e.target.dataset.index;
+        let cost = Product[indexChoose].cost;
+        mount = +prompt("Bạn muốn mua bao nhiêu "+Product[indexChoose].unit+" "+ Product[indexChoose].name);
+        Product[indexChoose].mount = mount;
+        let totalMoney = cost *mount;
+        Product[indexChoose].totalMoney = totalMoney;
+        console.log(indexChoose)
+    }
+    console.log(Product)
+class Bill{
+        constructor() {
+            this.totalBill = 0;
+            this.count =0;
+        }
+        Update(listItem){
+            let updateItem = `
+            <tr>
+                <th>STT</th>
+                <th> <p>Tên sản Phẩm</p> </th>
+                <th>Số lượng</th>
+                <th> Giá</th>
+            </tr>
+            `;
+            listItem.forEach((item)=>{
+
+                if(item.mount >0){
+                    this.count+=1;
+                     updateItem += `
+                <tr>
+                    <th>${this.count} </th>
+                    <th> <p>${item.name}</p> </th>
+                    <th>${item.mount} </th>
+                    <th>${item.totalMoney} đ</th>
+                </tr>
+                `
+                    this.totalBill+= item.totalMoney;
+
+                }
+            })
+            updateItem+=`
+                <tr>
+                    <th>Tổng tiền</th>
+                    <th> <p></p> </th>
+                    <th></th>
+                    <th>${this.totalBill} đ </th>
+                </tr>
+            `
+            BILL.innerHTML = updateItem;
+        }
+
+}
+function calculation() {
+    let bill = new Bill();
+    bill.Update(Product);
+    console.log(BILL)
+    option.style.display = 'none';
+    BILL.style.display = 'table';
+
+}
+
+
+</script>
+</body>
+</html>

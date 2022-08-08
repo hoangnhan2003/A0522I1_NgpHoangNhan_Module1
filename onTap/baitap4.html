@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sizeArr = +prompt("Enter size of Array:");
+    let arr = [];
+    function EnterArr(arr){
+
+        for(let i=0;i<sizeArr;i++){
+            let count =1;
+            do{
+                if(count > 1){
+                    var x = +prompt("re-enter number")
+                }
+                else{
+                    var x = +prompt("Enter number")
+                }
+                count++;
+            }
+            while (isNaN(x) || x > 50);
+            arr.push(x);
+    }
+
+    }
+    EnterArr(arr);
+    document.write(arr+"<br>");
+    function sumAverageEven(arr) {
+        let count =0;
+        let sum = 0;
+        for(let i=0;i<sizeArr;i++){
+            if( i % 2 ==1 && arr[i] %2 ==0){
+                sum+= arr[i];
+                count++;
+            }
+        }
+        return sum /count;
+    }
+    document.write(sumAverageEven(arr) + "<br>")
+</script>
+</body>
+</html>

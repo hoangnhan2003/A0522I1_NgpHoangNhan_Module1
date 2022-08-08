@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr =[];
+    let size = + prompt("Enter size of array");
+    function Input(arr) {
+        for(let i=0;i<size;i++){
+            arr[i] = +prompt("enter number");
+        }
+    }
+    Input(arr);
+    document.write(arr +"<br>")
+    function display(arr,x) {
+        for(let i=0;i<size;i++){
+            if(arr[i]%2==0 && x %2==1){
+                arr[i]++;
+            }
+            else if(x %2 ==0 && arr[i]%2==1){
+                arr[i]++;
+            }
+            else if(arr[i] == x){
+                arr[i] = -1;
+            }
+        }
+        return arr;
+    }
+    document.write(display(arr,1) +"<br>")
+
+</script>
+</body>
+</html>

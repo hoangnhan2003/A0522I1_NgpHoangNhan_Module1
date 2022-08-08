@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #list{
+            display: flex;
+            flex-direction: column;
+        }
+    .lottery{
+        display: flex;
+    }
+    .lottery span{
+        margin-right: 40px;
+        line-height: 30px;
+    }
+        .lottery li{
+            display: block;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 30px;
+            width: 80px;
+            height: 30px;
+            background-color: cornflowerblue;
+            border-radius: 2px;
+        }
+    button{
+        margin-right: 30px;
+        width: 190px;
+        height: 45px;
+        background-color: #d41212;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #faef00;
+    }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1 class="title">XỔ SỐ MUA LÀ LỖ , UY TÍN 100% !!</h1>
+<div id="list">
+<!--    <ul class="lottery">-->
+<!--        <span>Vé 1:</span>-->
+<!--        <li>12</li>-->
+<!--        <li>34</li>-->
+<!--        <li>54</li>-->
+<!--        <li>32</li>-->
+<!--        <li>23</li>-->
+<!--        <li>32</li>-->
+<!--    </ul>-->
+</div>
+<button onclick="buySL()">Mua xổ số tự chọn </button>
+<button onclick="buyRD()">Mua xổ số ngẫu nhiên</button>
+<button onclick="checkAward()">Check award Lottery</button>
+<script>
+    let list = document.getElementById('list');
+    class Lottery{
+        constructor() {
+            this.number = [];
+        }
+    }
+    class Buyer{
+        constructor() {
+            this.storage = [];
+        }
+        render(){
+            let render = ``;
+            for(let i=0;i<this.storage.length;i++){
+                render+=`<ul class="lottery">
+                         <span>Vé ${i+1}:</span>`
+                for(let j=0;j<6;j++){
+                    render+=`
+                        <li>${this.storage[i].number[j]}</li>
+                    `
+                }
+                render+=`</ul>`;
+            }
+
+                list.innerHTML = render;
+
+        }
+        buySelect(){
+            let amount = +prompt("enter amount you want buy");
+            for(let i=0;i<amount;i++){
+                let lottery = new Lottery();
+                for(let i=0;i<6;i++){
+                    let number = +prompt("Enter number you want:");
+                    lottery.number.push(number);
+                }
+                this.storage.push(lottery);
+                this.render();
+            }
+        }
+        buyRandom(){
+            let amount = +prompt("enter amount you want buy");
+            for(let i=0;i<amount;i++){
+                let lottery = new Lottery();
+                for(let i=0;i<6;i++){
+                    let number = Math.floor(Math.random()*100);
+                    lottery.number.push(number);
+                }
+                this.storage.push(lottery);
+                this.render();
+            }
+        }
+
+    }
+    let person1 = new Buyer();
+   function buyRD(){
+        person1.buyRandom();
+   }
+   function buySL() {
+        person1.buySelect();
+   }
+    let winPrizeLottery = new Lottery();
+   function Award() {
+       for(let i=0;i<6;i++){
+            let number = Math.floor(Math.random()*100);
+            winPrizeLottery.number.push(number);
+        }
+   }
+   Award();
+   function checkWin(person,winLottery) {
+        for(let i=0;i<person.length;i++){
+            if(person.storage[i] == winLottery.number){
+                return true;
+            }
+        }
+        return false;
+   }
+   function checkAward() {
+       for(let i=0;i<person1.storage.length;i++){
+           let count =0;
+           for(let j=0;j<6;j++){
+               if(person1.storage[i].number[j] == winPrizeLottery.number[j] ){
+                   count++;
+               }
+           }
+           console.log(person1.storage[i].number);
+       }
+       // for( let number of winPrizeLottery.number){
+       //     let count =0;
+       //
+       // }
+        // if(checkWin(person1,winPrizeLottery.number)){
+        //     alert("You won a special award lottery");
+        // }
+        // else{
+        //     alert("Wish you luck at next time");
+        // }
+   }
+   for( let number of winPrizeLottery.number){
+       let count =0;
+       for(let i=0;i<person1.storage.length;i++){
+           console.log(person1.storage[i].number);
+       }
+   }
+</script>
+</body>
+</html>
